@@ -3,7 +3,7 @@ $(function() {
     let incorrectAnsw=0;
     let unanswered=0;
     let qNumber = 0 ;
-    let timeCounter = 15;
+    let timeCounter = 30;
     let interval_15 = 0;
     let isEndOfGame = false;
     let newGameIndex = 0;
@@ -92,7 +92,7 @@ function createQuestions(questions) {
 
         responsiveVoice.cancel();
 
-        timeCounter = 15;
+        timeCounter = 30;
         newGameIndex = 0;
         if(qNumber < 10){
             showQ(qNumber);

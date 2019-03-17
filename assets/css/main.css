@@ -7,11 +7,6 @@ body {
 }
 
 /* MAIN TITLE */
-.card-img-top {
-    width: 100%;
-    height: 15vw;
-    object-fit: cover;
-}
 
 .title-letter {
     font-size: 6rem;
@@ -32,18 +27,6 @@ body {
   }
 
   /* DIV SIZES */
-  #allplayers {
-      height: 350px;
-  }
-
-  #inviteplayer {
-      height: 150px;
-  }
-
-  #thetrivia, #chatarea {
-      height: 300px;
-  }
-
   #msgList {
     height: 300px;
     overflow-y: scroll;
@@ -151,6 +134,10 @@ body {
       width: 50px;
   }
 
+  #start_img {
+    width: 30px;
+  }
+
   .chatPic {
     width: 30px;
   }
@@ -161,6 +148,12 @@ body {
 
   .playerScores {
     width: 30px;
+  }
+
+  #allplayers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   /* Trivia! */

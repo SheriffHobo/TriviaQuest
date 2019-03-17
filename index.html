@@ -20,9 +20,9 @@
 
 <body>
     <div class="container-fluid">
-        <div class="card mb-2 border-0" style="height: 150px">
-            <img class="card-img-top" src="./assets/images/pixarHeader.jpg" alt="colorful cubes" style="height:100%">
-            <div class="card-img-overlay d-flex justify-content-center align-items-center">
+        <div class="mb-2" style="height: 150px">
+            <!-- <img class="card-img-top" src="./assets/images/pixarHeader.jpg" alt="colorful cubes" style="height:100%"> -->
+            <div class="d-flex justify-content-center align-items-center">
                 <p class="title-letter">T</p>
                 <p class="title-letter">R</p>
                 <p class="title-letter">I</p>
@@ -39,23 +39,25 @@
             </div>
         </div>
 
-        <div class="container-fluid col-8">
+        <div class="container-fluid col-8 text-center">
             <!-- PLAYER INFO -->
-            <div id="player" class="row bg-light text-dark m-2">
-                <div><h5>Welcome!</h5></div>
-                <div class="col" id="playerPic"></div>
-                <div class="col" id="userScore"></div>
-                <div class="col">
-                    <button type="button" id="emailSignOut" class="btn btn-primary d-none btn-sm">Sign
-                        Out</button>
-                    <button type="button" id="facebookSignOut" class="btn btn-primary d-none btn-sm">Sign
-                        Out</button>
+            <div id="player" class="row text-light m-4 p-2">
+                <div class="col-3" id="playerPic"></div>
+                <div class="col-3" id="userScore"></div>
+                <div class="col-3">
+                    <button id="start_button" onclick="startButton(event);">
+                    <img id="start_img" class="rounded-circle" src="mic.gif" alt="Start"></button>
                 </div>
-
-
+                <div class="col-3">
+                        <button type="button" id="emailSignOut" class="btn btn-primary d-none btn-sm">Sign
+                            Out</button>
+                        <button type="button" id="facebookSignOut" class="btn btn-primary d-none btn-sm">Sign
+                            Out</button>
+                    </div>
+                <!-- <div class="w-100"></div>
                 <div class="col">
                     <div id="inviteplayer" class="">
-                        <!-- SPEECH TO TEXT -->
+                        SPEECH TO TEXT
                         <div id="info" style="display:none !important;">
                             <p id="info_speak_now">Speaking ...</p>
                             <p id="info_no_speech" style="display:none !important;">No speech was detected.
@@ -78,10 +80,6 @@
                                 Upgrade to <a href="//www.google.com/chrome">Chrome</a>
                             </p>
                         </div>
-                        <div class="">
-                            <button id="start_button" onclick="startButton(event);">
-                                <img id="start_img" class="rounded-circle" src="mic.gif" alt="Start"></button>
-                        </div>
                         <div id="results">
                             <span id="final_span" class="final"></span>
                             <span id="interim_span" class="interim"></span>
@@ -90,26 +88,36 @@
                             <span id="copy_info" class="d-none"></span>
                             <span id="email_info" class="d-none"></span>
                         </div>
-
                         <div style="display:none !important;" id="div_language">
                             <select style="display:none !important;" id="select_language" style="display:none;"
                                 onchange="updateCountry()"></select>
                             &nbsp;&nbsp;
                             <select style="display:none !important;" style="display:none;" id="select_dialect"></select>
                         </div>
-                        <!-- end of speech to text-->
+                        end of speech to text
                     </div>
-                </div>
-
+                </div> -->
             </div>
+        </div>
 
+        <div class="container-fluid col-8 border-top border-bottom border-white p-3">
+            <div class="row text-light">
+                    <div class="">
+                        <div class="">
+                            <div id="allplayers" class="text-center">
+                               <div class="pstitle float-left">Player Scores: </div>
+                                <div id="usersScoreBoard" class="float-left"></div>
+                            </div>
+                            </div>
+                    </div>
+            </div>
         </div>
 
 
         <div class="container-fluid col-8">
-            <div class="row bg-light text-dark">
+            <div class="row text-light m-4">
                 <!-- QUESTIONS -->
-                <div class="col-5">
+                <div class="col-6">
                     <div id="thetrivia" class="divwrapRadio text-center">
                         <h6 id="topic">Waiting for topic ...</h6>
                         <div id="questionId" class="questionAnswer">
@@ -135,23 +143,14 @@
 
                     </div>
                 </div>
-
                 <!-- PLAYER SCORES -->
-                <div class="col-2">
-                    <div class="">
-                        <div id="allplayers" class="text-center">
-                            <div class="pstitle">Player Scores:</div>
-                            <div id="usersScoreBoard"></div>
-                        </div>
-                    </div>
-                </div>
-
+                
                 <!-- CHAT -->
-                <div class="col-5">
+                <div class="col-6">
                     <div id="msgList" class="mt-2" style="word-wrap: break-word"></div>
                     <form action="" class="mt-2">
                         <label for="">
-                            Message: <input type="text" id="msginput" placeholder=" Your insult:" value="" size="40">
+                            Message: <input type="text" id="msginput" placeholder=" Your insult:" value="" size="35">
                         </label>
                         <button id="btnSubmit" class="myButton">Taunt!</button>
                     </form>
@@ -159,97 +158,99 @@
 
             </div>
         </div>
+
     </div>
-        <!-- The Login Modal -->
-        <div class="modal fade" id="loginModal">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
+    <!-- The Login Modal -->
+    <div class="modal fade" id="loginModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title"><span style="font-size: 1em; color: White;"><i class="fas fa-question-circle fa-spin fa-fw"></i></span>
-                            Login</h4>
-                        <button type="button" id="loginCloseBtn" class="close d-none btn-sm" data-dismiss="modal">X</button>
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title"><span style="font-size: 1em; color: White;"><i class="fas fa-question-circle fa-spin fa-fw"></i></span>
+                        Login</h4>
+                    <button type="button" id="loginCloseBtn" class="close d-none btn-sm" data-dismiss="modal">X</button>
+                </div>
+
+                <!-- Modal body -->
+
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="usrname"><span class=""><i class="fas fa-envelope"></i></span> Email</label>
+                        <input type="email" class="form-control" id="loginInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Ex: key@lime.pie">
                     </div>
-
-                    <!-- Modal body -->
-
-                    <div class="modal-body">
-
-                        <div class="form-group">
-                            <label for="usrname"><span class=""><i class="fas fa-envelope"></i></span> Email</label>
-                            <input type="email" class="form-control" id="loginInputEmail1" aria-describedby="emailHelp"
-                                placeholder="Ex: key@lime.pie">
-                        </div>
-                        <div class="form-group">
-                            <label for="usrname"><span class=""><i class="fas fa-lock"></i></span> Password</label>
-                            <input type="password" class="form-control" id="loginInputPassword1" placeholder="Ex: H0wNoVV!!">
-                        </div>
-                        <div class="form-group">
-                            <div class="col-12" id="errLoginMessage"></div>
-                        </div>
+                    <div class="form-group">
+                        <label for="usrname"><span class=""><i class="fas fa-lock"></i></span> Password</label>
+                        <input type="password" class="form-control" id="loginInputPassword1" placeholder="Ex: H0wNoVV!!">
                     </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <!--<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>-->
-                        <button id="fbLoginFunc" class="loginBtn loginBtn--facebook btn-sm">Login</button>
-                        <!--<button class="loginBtn loginBtn--google float-left">Login</button>-->
-                        <button type="submit" id="btnLogin" class="btn btn-primary btn-sm">Login</button>
-                        <button type="button" id="openSignup" class="btn btn-secondary btn-sm" data-toggle="modal"
-                            data-target="#signupModal">Signup</button>
+                    <div class="form-group">
+                        <div class="col-12" id="errLoginMessage"></div>
                     </div>
+                </div>
 
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>-->
+                    <button id="fbLoginFunc" class="loginBtn loginBtn--facebook btn-sm">Login</button>
+                    <!--<button class="loginBtn loginBtn--google float-left">Login</button>-->
+                    <button type="submit" id="btnLogin" class="btn btn-primary btn-sm">Login</button>
+                    <button type="button" id="openSignup" class="btn btn-secondary btn-sm" data-toggle="modal"
+                        data-target="#signupModal">Signup</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- The Signup Modal -->
+    <div class="modal fade" id="signupModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title"><i class="fas fa-question-circle fa-spin fa-fw"></i> Signup</h4>
+                </div>
+
+                <!-- Modal body -->
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="usrname"><span class=""><i class="fas fa-user"></i></span> User Name</label>
+                        <input type="name" class="form-control mb-3" id="signupDisplayName" aria-describedby="nameHelp"
+                            placeholder="Ex: Coral">
+                    </div>
+                    <div class="form-group">
+                        <label for="usrname"><span class=""><i class="fas fa-envelope"></i></span> Email</label>
+                        <input type="email" class="form-control" id="signupInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Ex: key@lime.pie">
+                    </div>
+                    <div class="form-group">
+                        <label for="usrname"><span class=""><i class="fas fa-lock"></i></span> Password</label>
+                        <input type="password" class="form-control" id="signupInputPassword1" placeholder="Ex: H0wNoVV!!">
+                    </div>
+                    <div class="form-group">
+                        <div class="col-12" id="errSignUpMessage"></div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" id="openLoginModal" class="btn btn-primary btn-sm" data-dismiss="modal">
+                        Back
+                        to Login</button>
+                    <button type="button" id="btnSignUp" class="btn btn-secondary btn-sm">Signup</button>
 
                 </div>
             </div>
         </div>
-        <!-- The Signup Modal -->
-        <div class="modal fade" id="signupModal">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
+    </div>
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title"><i class="fas fa-question-circle fa-spin fa-fw"></i> Signup</h4>
-                    </div>
-
-                    <!-- Modal body -->
-
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="usrname"><span class=""><i class="fas fa-user"></i></span> User Name</label>
-                            <input type="name" class="form-control mb-3" id="signupDisplayName" aria-describedby="nameHelp"
-                                placeholder="Ex: Coral">
-                        </div>
-                        <div class="form-group">
-                            <label for="usrname"><span class=""><i class="fas fa-envelope"></i></span> Email</label>
-                            <input type="email" class="form-control" id="signupInputEmail1" aria-describedby="emailHelp"
-                                placeholder="Ex: key@lime.pie">
-                        </div>
-                        <div class="form-group">
-                            <label for="usrname"><span class=""><i class="fas fa-lock"></i></span> Password</label>
-                            <input type="password" class="form-control" id="signupInputPassword1" placeholder="Ex: H0wNoVV!!">
-                        </div>
-                        <div class="form-group">
-                            <div class="col-12" id="errSignUpMessage"></div>
-                        </div>
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" id="openLoginModal" class="btn btn-primary btn-sm" data-dismiss="modal">
-                            Back
-                            to Login</button>
-                        <button type="button" id="btnSignUp" class="btn btn-secondary btn-sm">Signup</button>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Button to Open the Modal -->
-        <button type="button" class="btn btn-primary d-none" id="openModal" data-toggle="modal" data-target="#loginModal"></button>
-        <!-- End of modals for login and sign up -->
+    <!-- Button to Open the Modal -->
+    <button type="button" class="btn btn-primary d-none" id="openModal" data-toggle="modal" data-target="#loginModal"></button>
+    <!-- End of modals for login and sign up -->
 
     </div>
 
