@@ -274,7 +274,7 @@ document.addEventListener('keyup', function (event) {
         {
             $("#answ2").prop("checked", true);
 
-        }else if (userSpeakAnswer == "Three" || userSpeakAnswer == "Number three"|| userSpeakAnswer == 3" )
+        }else if (userSpeakAnswer == "Three" || userSpeakAnswer == "Number three"|| userSpeakAnswer == "3" )
         {
             $("#answ3").prop("checked", true);
             

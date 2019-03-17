@@ -3,7 +3,7 @@ $(function() {
     let incorrectAnsw=0;
     let unanswered=0;
     let qNumber = 0 ;
-    let timeCounter = 30;
+    let timeCounter = 15;
     let interval_15 = 0;
     let isEndOfGame = false;
     let newGameIndex = 0;
@@ -86,47 +86,13 @@ function createQuestions(questions) {
     ////////////////////////////////////////////////////////////////
     //showing topic category
      console.log("questions");
-    $("#topic").html(questions[qNumber].category);
+    $("#topic").html(`Catagory: ${questions[qNumber].category}`);
 
     function nextQuestion(){
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         responsiveVoice.cancel();
-=======
-        // responsiveVoice.cancel();
->>>>>>> parent of 462ca6e... merging to master
-=======
-        // responsiveVoice.cancel();
->>>>>>> parent of 462ca6e... merging to master
-=======
-        // responsiveVoice.cancel();
->>>>>>> parent of 462ca6e... merging to master
-=======
-        // responsiveVoice.cancel();
->>>>>>> parent of 462ca6e... merging to master
-=======
-        // responsiveVoice.cancel();
->>>>>>> parent of 462ca6e... merging to master
-=======
-        // responsiveVoice.cancel();
->>>>>>> parent of 462ca6e... merging to master
-=======
-        // responsiveVoice.cancel();
->>>>>>> parent of 462ca6e... merging to master
-=======
-        // responsiveVoice.cancel();
->>>>>>> parent of 462ca6e... merging to master
-=======
-        // responsiveVoice.cancel();
->>>>>>> parent of 462ca6e... merging to master
-        timeCounter = 30;
+
+        timeCounter = 15;
         newGameIndex = 0;
         if(qNumber < 10){
             showQ(qNumber);
@@ -249,7 +215,7 @@ function createQuestions(questions) {
         $("#showTimer").html("");
         $('.radio').hide();
         correctAnsw++;
-        $('#questionId').html("&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Correct!");
+        $('#questionId').html("Correct!");
         $('#answ1').get(0).nextSibling.textContent = '';
         $('#answ2').get(0).nextSibling.textContent = '';
         $('#answ3').get(0).nextSibling.textContent = '';
@@ -272,7 +238,7 @@ function createQuestions(questions) {
         $("#showTimer").html("");
         $('.radio').hide();
         incorrectAnsw++;
-        $('#questionId').html("&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Incorrect!");
+        $('#questionId').html("Incorrect!");
         $('#answ1').get(0).nextSibling.textContent = '';
         $('#answ2').get(0).nextSibling.textContent = '';
         $('#answ3').get(0).nextSibling.textContent = '';
@@ -294,7 +260,7 @@ function createQuestions(questions) {
         $("#showTimer").html("");
         $('.radio').hide();
         unanswered++;
-        $('#questionId').html("&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp The Answer is: "+ questions_correct_answer);
+        $('#questionId').html("You did not select and answer.");
         $('#answ1').get(0).nextSibling.textContent = '';
         $('#answ2').get(0).nextSibling.textContent = '';
         $('#answ3').get(0).nextSibling.textContent = '';

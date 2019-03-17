@@ -6,6 +6,7 @@ body {
     background-attachment: fixed;
 }
 
+/* MAIN TITLE */
 .card-img-top {
     width: 100%;
     height: 15vw;
@@ -30,6 +31,7 @@ body {
     100% {transform: rotate(-5deg) scale(1.65,1.65)}
   }
 
+  /* DIV SIZES */
   #allplayers {
       height: 350px;
   }
@@ -43,16 +45,10 @@ body {
   }
 
   #msgList {
-    width: 98%;
     height: 300px;
     overflow-y: scroll;
     margin: 0 auto;
     text-align: left;
-  }
-
-  .card-img {
-    height: 100%;
-    object-fit: cover;
   }
 
 /* FANCY BUTTONS! */
@@ -161,6 +157,10 @@ body {
 
   #playerPic {
     font-size: 1.5rem;
+  }
+
+  .playerScores {
+    width: 30px;
   }
 
   /* Trivia! */
