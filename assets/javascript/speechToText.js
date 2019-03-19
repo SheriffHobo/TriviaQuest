@@ -1,90 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
-</head>
-<body>
-    <!-- QUESTIONS -->
-    <div class="col-6">
-            <div id="thetrivia" class="divwrapRadio text-center">
-                <h6 id="topic">Waiting for topic ...</h6>
-                <div id="questionId" class="questionAnswer">
-                    Waiting for question ...
-                </div>
-                <div class="radio questionAnswer mt-2">
-                    1: <label> <input id="answ1" type="radio" name="optradio" class="cursorPointer" onclick="console.log('1')">Waiting
-                        for answer 1 ...</label>
-                </div>
-                <div class="radio questionAnswer">
-                    2: <label> <input id="answ2" type="radio" name="optradio" class="cursorPointer" onclick="console.log('2')">Waiting
-                        for answer 2 ...</label>
-                </div>
-                <div class="radio questionAnswer">
-                    3: <label> <input id="answ3" type="radio" name="optradio" class="cursorPointer" onclick="console.log('3')">Waiting
-                        for answer 3 ...</label>
-                </div>
-                <div class="radio questionAnswer">
-                    4: <label><input id="answ4" type="radio" name="optradio" class="cursorPointer" onclick="console.log('4')">Waiting
-                        for answer 4 ...</label>
-                </div>
-                <div id="showTimer" class="showTimer mt-2"></div>
-
-            </div>
-        </div>
-        <!-- PLAYER SCORES -->
-    <!-- speech to text codes -->
-
-    <div id="info" style="display:none !important;">
-        <p id="info_speak_now">Speaking ...</p>
-        <p id="info_no_speech" style="display:none !important;">No speech was detected. You
-            may need to adjust your
-            <a style="display:none !important;" href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
-                microphone settings</a>.</p>
-        <p style="display:none !important;" id="info_no_microphone" style="display:none">
-            No microphone was found. Ensure that a microphone is installed and that
-            <a style="display:none !important;" href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
-                microphone settings</a> are configured correctly.</p>
-        <p style="display:none !important;" id="info_allow">Click the "Allow" button above
-            to enable your microphone.</p>
-        <p style="display:none !important;" id="info_denied">Permission to use microphone
-            was denied.</p>
-        <p style="display:none !important;" id="info_blocked">Permission to use microphone
-            is blocked. To change,
-            go to chrome://settings/contentExceptions#media-stream</p>
-        <p style="display:none !important;" id="info_upgrade">Web Speech API is not
-            supported by this browser.
-            Upgrade to <a href="//www.google.com/chrome">Chrome</a>
-        </p>
-    </div>
-    <div class="mt-4">
-        <button id="start_button" onclick="startButton(event);">
-            <img id="start_img" class="rounded-circle" src="mic.gif" alt="Start"></button>
-    </div>
-    <div id="results">
-        <span id="final_span" class="final"></span>
-        <span id="interim_span" class="interim"></span>
-        <span id="copy_button" class="d-none"></span>
-        <span id="email_button" class="d-none"></span>
-        <span id="copy_info" class="d-none"></span>
-        <span id="email_info" class="d-none"></span>
-
-
-    </div>
-
-    <div style="display:none !important;" id="div_language">
-        <select style="display:none !important;" id="select_language" style="display:none;"
-            onchange="updateCountry()"></select>
-        &nbsp;&nbsp;
-        <select style="display:none !important;" style="display:none;" id="select_dialect"></select>
-    </div>
-
-    <!-- end of speech to text-->
-    <script>
         var langs =
             [['Afrikaans', ['af-ZA']],
             ['Bahasa Indonesia', ['id-ID']],
@@ -228,7 +141,23 @@
                     let userSpeakAnswer = $("#final_span").text();
                     console.log("final_span= "  + userSpeakAnswer);
                     if (userSpeakAnswer == "One" || userSpeakAnswer == "Number one" || userSpeakAnswer == "1") {
+                        console.log("Number one");
                         $("#answ1").click();
+                        muteVoice('soft');
+                        unMuteVoice('soft');
+                        clearInterval(interval_15);
+                        $("#showTimer").html("");
+                        if ($("#answ1").is(':checked')) {
+                            if($("#answ1").get(0).nextSibling.textContent == questions_correct_answer) // correct answer is selected
+                            {
+                                correctAnswer();
+                                sayText("Correct!");
+                            }
+                            else{ // incorrect answer is selected
+                                incorrectAnswer();
+                                sayText("Incorrect!");
+                            }
+                        }  
 
                     } else if (userSpeakAnswer == "Two" || userSpeakAnswer == "Number two" || userSpeakAnswer == "2") {
                         $("#answ2").click();
@@ -392,8 +321,3 @@
                 startButton(event);
             }
         });
-        
-
-    </script>
-</body>
-</html>
