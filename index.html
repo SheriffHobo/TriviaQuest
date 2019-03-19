@@ -37,7 +37,7 @@
                 <p class="title-letter">!</p>
             </div>
 
-            <div class="container-fluid col-4">
+            <div id="userArea" class="container-fluid col-sm-12 col-md-6 col-lg-4 col-xl-4">
                 <!-- PLAYER INFO -->
                 <div class="row text-white mb-3 p-0 b-o align-items-center text-center justify-content-center">
                     <div class="col-1 m-0 p-0 b-o">
@@ -45,12 +45,12 @@
                             <button type="button" id="facebookSignOut" class="btn btn-primary d-none btn-sm"><i class="fas fa-sign-out-alt fa-flip-horizontal"></i></button>
                     </div>
                     <div class="col m-1 p-0 b-o" id="playerPic"></div>
-                    <div class="col-2 m-1 p-0 b-0" style="font-size: 1.1em" id="userScore"></div>
+                    <div class="col-3 m-1 p-0 b-0" id="userScore"></div>
                 </div>
             </div>
 
             <!-- ALL PLAYER SCORES -->
-            <div class="container-fluid col-8 border-top border-bottom border-white p-3">
+            <div class="container-fluid col-12 col-sm-12 col-md-10 col-lg-8 col-xl-8 border-top border-bottom border-white p-3">
                 <div class="row text-white">
                     <div id="allplayers" class="text-center">
                         <div class="pstitle float-left">Player Scores: </div>
@@ -60,14 +60,14 @@
             </div>
 
 
-        <div class="container-fluid col-8">
-            <div class="row text-light m-4">
+        <div id="qsandas" class="d-flex align-items-center justify-content-center">
+            <div class="row container-fluid col-12 col-sm-12 col-md-10 col-lg-8 col-xl-8 text-light mt-4">
                 <!-- QUESTIONS -->
-                <div class="col-7">
-                    <div class="col text-center" id="btnNewGameWrap">
-                        <button class="btn btn-primary" id="newGameBtn">New Game</button>
+                <div class="container-fluid col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7">
+                    <div id="btnNewGameWrap" class="text-center">
+                        <button class="btn btn-primary btn-sm" id="newGameBtn">New Game</button>
                     </div>
-                    <div id="thetrivia" class="divwrapRadio text-center d-none">
+                    <div id="thetrivia" class="divwrapRadio d-none text-center">
                         <h6 id="topic">Waiting for topic ...</h6>
                         <div id="questionId" class="questionAnswer mb-3">
                             Waiting for question ...
@@ -94,16 +94,16 @@
 
                     </div>
                     <div class="col text-center" id="btnStopGameWrap">
-                        <button class="btn btn-secondary d-none" id="stopGameBtn">Stop Game</button>
+                        <button class="btn btn-secondary btn-sm d-none mt-2" id="stopGameBtn">Stop Game</button>
                     </div>
                 </div>
 
                 <!-- CHAT -->
-                <div class="col-5">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
                     <div id="msgList" class="scrollbar mt-2" style="word-wrap: break-word"></div>
-                    <form action="" class="mt-2">
+                    <form action="" class="mt-2 text-center" >
                         <label for="">
-                            Message: <input type="text" id="msginput" placeholder=" Your insult:" value="" size="35">
+                            Message: <input type="text" placeholder=" Your insult:" value="">
                         </label>
                         <button id="btnSubmit" class="myButton">Taunt!</button>
                     </form>
