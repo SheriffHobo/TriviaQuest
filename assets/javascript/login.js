@@ -145,7 +145,7 @@
                 snapshot.forEach(function(child) {
                     currentUserInfo = child.val();
                 });
-                $("#userScore").html(`<p>Your Score: ${currentUserInfo}</p>`);
+                $("#userScore").html(`<span class="align-middle">Your Score: ${currentUserInfo}</span>`);
             });
             ////////////// 
 

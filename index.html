@@ -20,8 +20,6 @@
 
 <body>
     <div class="container-fluid">
-        <div class="mb-2" style="height: 150px">
-            <!-- <img class="card-img-top" src="./assets/images/pixarHeader.jpg" alt="colorful cubes" style="height:100%"> -->
             <div class="d-flex justify-content-center align-items-center">
                 <p class="title-letter">T</p>
                 <p class="title-letter">R</p>
@@ -37,41 +35,33 @@
                 <p class="title-letter">T</p>
                 <p class="title-letter">!</p>
             </div>
-        </div>
 
-        <div class="container-fluid col-8 text-center">
-            <!-- PLAYER INFO -->
-            <div id="player" class="row text-light m-4 p-2">
-                
-                <div class="col-6" id="playerPic"></div>
-                <div class="col-2" id="userScore"></div>
-                <div class="col-4">
-                        <button type="button" id="emailSignOut" class="btn btn-primary d-none btn-sm">Sign
-                            Out</button>
-                        <button type="button" id="facebookSignOut" class="btn btn-primary d-none btn-sm">Sign
-                            Out</button>
+            <div class="container-fluid col-5">
+                <!-- PLAYER INFO -->
+                <div class="row text-white mb-3 p-0 b-o align-items-center text-center justify-content-center">
+                    <div class="col-1 m-1 p-0 b-o">
+                            <button type="button" id="emailSignOut" class="btn btn-primary d-none btn-sm"><i class="fas fa-sign-out-alt fa-flip-horizontal"></i></button>
+                            <button type="button" id="facebookSignOut" class="btn btn-primary d-none btn-sm"><i class="fas fa-sign-out-alt fa-flip-horizontal"></i></button>
                     </div>
+                    <div class="col-4 m-1 p-0 b-o" id="playerPic"></div>
+                    <div class="col-2 m-1 p-0 b-0" id="userScore"></div>
+                </div>
             </div>
-        </div>
-
-        <div class="container-fluid col-8 border-top border-bottom border-white p-3">
-            <div class="row text-light">
-                    <div class="">
-                        <div class="">
-                            <div id="allplayers" class="text-center">
-                               <div class="pstitle float-left">Player Scores: </div>
-                                <div id="usersScoreBoard" class="float-left"></div>
-                            </div>
-                            </div>
+            <!-- ALL PLAYER SCORES -->
+            <div class="container-fluid col-8 border-top border-bottom border-white p-3">
+                <div class="row text-white">
+                    <div id="allplayers" class="text-center">
+                        <div class="pstitle float-left">Player Scores: </div>
+                        <div id="usersScoreBoard" class="float-left"></div>
                     </div>
+                </div>
             </div>
-        </div>
 
 
         <div class="container-fluid col-8">
             <div class="row text-light m-4">
                 <!-- QUESTIONS -->
-                <div class="col-6">
+                <div class="col-7">
                     <div id="thetrivia" class="divwrapRadio text-center">
                         <h6 id="topic">Waiting for topic ...</h6>
                         <div id="questionId" class="questionAnswer">
@@ -97,11 +87,10 @@
 
                     </div>
                 </div>
-                <!-- PLAYER SCORES -->
-                
+
                 <!-- CHAT -->
-                <div class="col-6">
-                    <div id="msgList" class="mt-2" style="word-wrap: break-word"></div>
+                <div class="col-5">
+                    <div id="msgList" class="scrollbar force-overflow mt-2" style="word-wrap: break-word"></div>
                     <form action="" class="mt-2">
                         <label for="">
                             Message: <input type="text" id="msginput" placeholder=" Your insult:" value="" size="35">
@@ -225,4 +214,5 @@
     <script src="./assets/javascript/chat.js"></script>
     </script>
 </body>
+
 </html>

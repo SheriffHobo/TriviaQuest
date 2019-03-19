@@ -222,3 +222,28 @@ body {
     /* Clip-path spanning the entire box so it's no longer hiding the full-width border. */
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
+
+  /* SCROLLBAR */
+  #msgList::-webkit-scrollbar-track
+{
+	background-color: rgba(0, 0, 0, 0);
+	border-radius: 15px;
+}
+
+#msgList::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: rgba(0, 0, 0, 0.322);
+}
+
+#msgList::-webkit-scrollbar-thumb
+{
+	border-radius: 20px;
+	background-color: #FFF;
+	background-image: -webkit-gradient(linear,
+									   40% 0%,
+									   75% 84%,
+									   from(#4D9C41),
+									   to(#19911D),
+									   color-stop(.6,#54DE5D))
+}
