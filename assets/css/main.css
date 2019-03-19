@@ -280,3 +280,72 @@ body {
 									   to(#19911D),
 									   color-stop(.6,#54DE5D))
 }
+
+/* MEDIA */
+/* Extra small devices (portrait phones, less than 767.9px) */
+@media (min-width: 320px) and (max-width: 767.9px) {
+  .title-letter {
+    font-size: 10vw;
+  }
+#playerPic {
+  font-size: 1rem;
+}
+#userScore {
+  font-size: 1rem;
+}
+.pstitle {
+  font-size: 1rem;
+}
+#usersScoreBoard {
+  font-size: .75rem;
+}
+#topic {
+  font-size: 1rem;
+}
+#questionId, #radiobtns, #showTimer {
+  font-size: .75rem;
+}
+#msgList {
+  font-size: .75rem;
+}
+.chatPic {
+  width: 25px;
+}
+}
+
+/* Large devices (desktops, 768px and up) */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .title-letter {
+    font-size: 10vw;
+  }
+#playerPic {
+  font-size: 1rem;
+}
+#userScore {
+  font-size: 1rem;
+}
+.pstitle {
+  font-size: 1rem;
+}
+#usersScoreBoard {
+  font-size: .75rem;
+}
+#topic {
+  font-size: 1rem;
+}
+#questionId, #radiobtns, #showTimer {
+  font-size: .75rem;
+}
+#msgList {
+  font-size: .75rem;
+}
+.chatPic {
+  width: 25px;
+}
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}

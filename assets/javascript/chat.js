@@ -5,9 +5,7 @@ $(function () {
     $('#btnSubmit').on('click', function (event) {
         event.preventDefault();
         u = $('.imgProfile').attr('src');
-        var name = $('#userDisplayName').text().split(' ')[0];
-        // console.log(name);
-        // console.log(u);
+        var name = $('#playerPic').val().split(' ')[0];
         var m = $('#msginput').val();
         var t = Date();
         database.ref('/chat/').push({ name, text: m, time: t, img: u });
@@ -25,6 +23,5 @@ $(function () {
         $('<div />').text(text).prepend($('<em/>').html(`<img src='${img}' class="rounded-circle chatPic mt-2"/> ${name} :   ${newTime} : `)).appendTo('#msgList');
         $('#msgList')[0].scrollTop = $('#msgList')[0].scrollHeight;
     };
-
 
 });

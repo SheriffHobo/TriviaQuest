@@ -159,7 +159,7 @@
             if(firebaseUser.photoURL != null){
                 btnSignOut.classList.add('d-none');
                 facebookSignOut.classList.remove('d-none');
-                $("#playerPic").html(`<img src='${firebaseUser.photoURL}' class='imgProfile rounded-circle' id='userChatPic' /> &nbsp;&nbsp; ${firebaseUser.displayName}`);
+                $("#playerPic").html(`<img src='${firebaseUser.photoURL}' class='imgProfile rounded-circle'/>&nbsp;&nbsp;${firebaseUser.displayName}`).attr('value', `${firebaseUser.displayName}`);
             }
             else{
                 // console.log("logged in already by email");
