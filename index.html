@@ -62,7 +62,10 @@
             <div class="row text-light m-4">
                 <!-- QUESTIONS -->
                 <div class="col-7">
-                    <div id="thetrivia" class="divwrapRadio text-center">
+                    <div class="col text-center" id="btnNewGameWrap">
+                        <button class="btn btn-primary" id="newGameBtn">New Game</button>
+                    </div>
+                    <div id="thetrivia" class="divwrapRadio text-center d-none">
                         <h6 id="topic">Waiting for topic ...</h6>
                         <div id="questionId" class="questionAnswer">
                             Waiting for question ...
@@ -85,6 +88,9 @@
                         </div>
                         <div id="showTimer" class="showTimer mt-2"></div>
 
+                    </div>
+                    <div class="col text-center" id="btnStopGameWrap">
+                        <button class="btn btn-secondary d-none" id="stopGameBtn">Stop Game</button>
                     </div>
                 </div>
 

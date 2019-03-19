@@ -1,18 +1,53 @@
-$(function() {
-    let correctAnsw=0;
-    let incorrectAnsw=0;
-    let unanswered=0;
-    let qNumber = 0 ;
-    let timeCounter = 30;
-    let interval_15 = 0;
-    let isEndOfGame = false;
-    let newGameIndex = 0;
-    let questionArr = [];
-    let questions_correct_answer = "";
-    var categoriesArray = [];
+let correctAnsw=0;
+let incorrectAnsw=0;
+let unanswered=0;
+let qNumber = 0 ;
+let timeCounter = 30;
+let interval_15 = 0;
+let isEndOfGame = false;
+let newGameIndex = 0;
+let questionArr = [];
+let questions_correct_answer = "";
+var categoriesArray = [];
+$("#newGameBtn").on('click',function(){
+    $("#newGameBtn").addClass('d-none');
+    $("#stopGameBtn").removeClass('d-none');
+    $("#thetrivia").removeClass('d-none');
+    startGame();
+});
+$("#stopGameBtn").on('click',function(){
+    $("#stopGameBtn").addClass('d-none');
+    $("#newGameBtn").removeClass('d-none');
+    $("#thetrivia").addClass('d-none');
+    clearInterval(interval_15);
+    clearInterval(interval3_co);
+    clearInterval(interval3_in);
+    clearInterval(interval3_un);
+    correctAnsw=0;
+    incorrectAnsw=0;
+    unanswered=0;
+    qNumber = 0 ;
+    timeCounter = 30;
+    interval_15 = 0;
+    isEndOfGame = false;
+    newGameIndex = 0;
+    questionArr = [];
+    questions_correct_answer = "";
+    categoriesArray = [];
+});
 
-   
-
+function startGame() {
+    correctAnsw=0;
+    incorrectAnsw=0;
+    unanswered=0;
+    qNumber = 0 ;
+    timeCounter = 30;
+    interval_15 = 0;
+    isEndOfGame = false;
+    newGameIndex = 0;
+    questionArr = [];
+    questions_correct_answer = "";
+    categoriesArray = [];
     //console.log(categoriesArray)
 
     randomquestionGenerate(Math.floor(Math.random() * 10) + 9, 10);
@@ -53,9 +88,6 @@ function createQuestions(questions) {
         //console.log(qNumberX);
         let showQuestionNum = qNumber + 1;
         let sayQuestion = "Question " + showQuestionNum + ": " + qNumberX;
-        //speak
-        responsiveVoice.cancel();
-        responsiveVoice.speak(sayQuestion, "US English Male");
         $('#questionId').html(sayQuestion);
         $('.radio').show();
         $( "#answ1" ).prop( "checked", false );
@@ -72,14 +104,9 @@ function createQuestions(questions) {
 
 
         //console.log(questionArr);
-        //speak
-        responsiveVoice.speak("1: " + questionArr[0], "US English Male");
         $('#answ1').get(0).nextSibling.textContent = questionArr[0];
-        responsiveVoice.speak("2: " + questionArr[1], "US English Male");
         $('#answ2').get(0).nextSibling.textContent = questionArr[1];
-        responsiveVoice.speak("3: " + questionArr[2], "US English Male");
         $('#answ3').get(0).nextSibling.textContent = questionArr[2];
-        responsiveVoice.speak("4: " + questionArr[3], "US English Male");
         $('#answ4').get(0).nextSibling.textContent = questionArr[3];
 
     }
@@ -89,8 +116,6 @@ function createQuestions(questions) {
     $("#topic").html(`Catagory: ${questions[qNumber].category}`);
 
     function nextQuestion(){
-
-        responsiveVoice.cancel();
 
         timeCounter = 30;
         newGameIndex = 0;
@@ -102,24 +127,15 @@ function createQuestions(questions) {
             clearInterval(interval_15);
             $("#showTimer").html("");
             $('.radio').hide();
-            //speak
-            responsiveVoice.speak("Completed! Let's see the result", "US English Male");
             $('#questionId').html("&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Completed! Let's see the result");
-            //speak
-            responsiveVoice.speak("The correct answers: "+ correctAnsw , "US English Male");
             $('#questionId').append('<br><p>The Correct answers: '+ correctAnsw + '</p>');
-            //speak
-            responsiveVoice.speak("The incorrect answers: "+ incorrectAnsw , "US English Male");
             $('#questionId').append('<p>The Incorrect answers: '+ incorrectAnsw + '</p>');
-            //speak
-            responsiveVoice.speak("The unanswered: "+ unanswered , "US English Male");
             $('#questionId').append('<p>The Unanswered: '+ unanswered + '</p><br>');
 
             
             let userPointsCalculate = correctAnsw*10 - incorrectAnsw;
-            responsiveVoice.speak("Your Total Score is : "+ userPointsCalculate , "US English Male");
             // send the result to firebase database
-            console.log("userID");
+
             
             firebase.auth().onAuthStateChanged((userPointLog) => {
                 if (userPointLog) {
@@ -167,7 +183,6 @@ function createQuestions(questions) {
         timeCounter = 30;
         interval_15 = 0;
         isEndOfGame = false; 
-        responsiveVoice.cancel();
         run();
     }
     function run()
@@ -199,13 +214,9 @@ function createQuestions(questions) {
             if ($(this).is(':checked')) {
                 if($(this).get(0).nextSibling.textContent == questions_correct_answer) // correct answer is selected
                 {
-                    //speak
-                    responsiveVoice.speak("Correct!", "US English Male");
                     correctAnswer();
                 }
                 else{ // incorrect answer is selected
-                    //speak
-                    responsiveVoice.speak("Incorrect!", "US English Male");
                     incorrectAnswer();
                 }
             }
@@ -265,7 +276,6 @@ function createQuestions(questions) {
         $('#answ2').get(0).nextSibling.textContent = '';
         $('#answ3').get(0).nextSibling.textContent = '';
         $('#answ4').get(0).nextSibling.textContent = '';    
-        responsiveVoice.speak("Answer is:" + questions_correct_answer, "US English Male");
         timeCounter = 3;
         let interval3_un = setInterval(function(){
             if(timeCounter>0)
@@ -283,4 +293,4 @@ function createQuestions(questions) {
         
 
     }// end of questions
-});
+}
