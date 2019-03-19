@@ -135,10 +135,21 @@
             // close the modals
             $("#signupCloseBtn").click();
             $("#loginCloseBtn").click();
-            console.log(firebaseUser);
             $("#userDisplayName").html(firebaseUser.displayName);
             $("#playerPic").html(`<img src='https://raw.githubusercontent.com/SheriffHobo/TriviaQuest/master/assets/images/userPic.png' class='imgProfile rounded-circle' id='userChatPic' />`); 
-            console.log(firebaseUser.photoURL);
+            // current user score
+            userId = firebaseUser.uid;
+            console.log("userId is = "+userId);
+            firebase.database().ref('/users/' + userId).on("value", function(snapshot){
+                var currentUserInfo = "";
+                snapshot.forEach(function(child) {
+                    currentUserInfo = child.val();
+                });
+                $("#userScore").html(`<p>Your Score: ${currentUserInfo}</p>`);
+            });
+            ////////////// 
+
+            //console.log(firebaseUser.photoURL);
             if(firebaseUser.photoURL != null){
                 btnSignOut.classList.add('d-none');
                 facebookSignOut.classList.remove('d-none');
@@ -167,5 +178,6 @@
         }
 
     });
+    
 
 }());

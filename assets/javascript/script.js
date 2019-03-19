@@ -9,36 +9,10 @@ $(function() {
     });
 
 });
-// listen for realtime scoreboard:
-/*var triviaDatabase = firebase.database();
-triviaDatabase.ref().on("value", function(snapshot) {
-    // show score board
-
-    triviaDatabase.ref('users/').on('child_added', function (snapshot) {
-        var userInfo = snapshot.val();
-
-        snapshot.forEach(function() {
-             var displayName = userInfo.displayName;
-             var profileImg = userInfo.profile_picture;
-             var userPoints = userInfo.userPoints;
-             $("#usersScoreBoard").html(`
-             <div class="row ml-1">
-                 <div class="col-2 text-center mt-3 mb-1"><img src='${profileImg}' class="rounded-circle"/></div>
-                 <div class="col-6 text-center mt-3 mb-1">${displayName}</div>
-                 <div class="col-4 text-center mt-3 mb-1">${userPoints}</div>
-             </div>
-             `);
-        });
-    });
-    // end score board
-  }, function(errorObject) {
-    console.log("The read failed: " + errorObject.code);
-  });
-*/
 var rootRef = firebase.database().ref();
 var urlRef = rootRef.child("users");
 urlRef.on("value", function(snapshot) {
-    $("#usersScoreBoard").html("");
+  $("#usersScoreBoard").html("");
   snapshot.forEach(function(child) {
     var userInfo = child.val();
 
@@ -52,8 +26,8 @@ urlRef.on("value", function(snapshot) {
         <div class="col-4 text-center mt-3 mb-1">${userPoints}</div>
     </div>
     `);
-
-    $('#userScore').html(`<p>Your Score: ${userPoints}</p>`);
   });
 });
+
+
   

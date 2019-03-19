@@ -42,7 +42,7 @@ $(function() {
             })
             .then(function(data) {
                 createQuestions(data.results);
-                console.log(data.results);
+                //console.log(data.results);
             })
     };
 function createQuestions(questions) {
@@ -50,7 +50,7 @@ function createQuestions(questions) {
 
     function showQ(){
         let qNumberX = questions[qNumber].question;
-        console.log(qNumberX);
+        //console.log(qNumberX);
         let showQuestionNum = qNumber + 1;
         let sayQuestion = "Question " + showQuestionNum + ": " + qNumberX;
         //speak
@@ -71,7 +71,7 @@ function createQuestions(questions) {
         questionArr.sort();
 
 
-        console.log(questionArr);
+        //console.log(questionArr);
         //speak
         responsiveVoice.speak("1: " + questionArr[0], "US English Male");
         $('#answ1').get(0).nextSibling.textContent = questionArr[0];
@@ -85,7 +85,7 @@ function createQuestions(questions) {
     }
     ////////////////////////////////////////////////////////////////
     //showing topic category
-     console.log("questions");
+     //console.log("questions");
     $("#topic").html(`Catagory: ${questions[qNumber].category}`);
 
     function nextQuestion(){
@@ -192,7 +192,7 @@ function createQuestions(questions) {
             }, 1000);
         }
     }
-    $('input:radio[name="optradio"]').change(
+    $('input:radio[name="optradio"]').click(
         function(){
             clearInterval(interval_15);
             $("#showTimer").html("");
