@@ -22,22 +22,25 @@ function muteVoice(mType){
 }
 function unMuteVoice(umType){
     if (umType == 'hard'){
-        isHardMute = true;
+        isHardMute = false;
+        console.log('Hard unMute');
     }
     isMute = false;
-    console.log('unMute');
+    console.log('Soft unMute');
 }
 document.addEventListener('keyup', function (event) {
     if (event.defaultPrevented) {
         return;
     }
-
     var key = event.key || event.keyCode;
-
     if (key === 'Alt' || key === 18) {
         muteVoice('hard');  
     }
     if (key === 'Shift' || key === 16) {
         unMuteVoice('hard');  
+    }
+    if (key === 'Enter' || key === 13) {
+        console.log("Enter pressed");
+        $("#newGameBtn").click();
     }
 });
