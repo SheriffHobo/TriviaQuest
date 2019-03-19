@@ -635,7 +635,7 @@ document.addEventListener('keyup', function (event) {
         radioBtnClick("#answ3");
         
 
-    } if (key == "ArrowLeft" || userSpeakAnswer == "37") {
+    } if (key == "ArrowLeft" || key == "37") {
         console.log("Number four");
         $("#answ4").click();
         radioBtnClick("#answ4");
