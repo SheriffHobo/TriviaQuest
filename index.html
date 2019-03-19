@@ -14,11 +14,12 @@
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/main.css" />
     <!-- Text to Speech-->
     <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
-
+    <script src="assets/javascript/textToSpeech.js"></script>
 
 </head>
 
 <body>
+    
     <div class="container-fluid">
             <div class="d-flex justify-content-center align-items-center">
                 <p class="title-letter">T</p>
@@ -63,31 +64,37 @@
             <div class="row text-light m-4">
                 <!-- QUESTIONS -->
                 <div class="col-7">
-                    <div id="thetrivia" class="divwrapRadio text-center">
+                    <div class="col text-center" id="btnNewGameWrap">
+                        <button class="btn btn-primary" id="newGameBtn">New Game</button>
+                    </div>
+                    <div id="thetrivia" class="divwrapRadio text-center d-none">
                         <h6 id="topic">Waiting for topic ...</h6>
                         <div id="questionId" class="questionAnswer mb-3">
                             Waiting for question ...
                         </div>
                         <div id="radiobtns">
                         <div class="radio questionAnswer pl-3 pr-3">
-                            1: <label><input id="answ1" type="radio" name="optradio" class="cursorPointer" onclick="console.log('1')">Waiting
+                            1: <label><input id="answ1" type="radio" name="optradio" class="cursorPointer">Waiting
                                 for answer 1 ...</label>
                         </div>
                         <div class="radio questionAnswer pl-3 pr-3">
-                            2: <label><input id="answ2" type="radio" name="optradio" class="cursorPointer" onclick="console.log('1')">Waiting
+                            2: <label><input id="answ2" type="radio" name="optradio" class="cursorPointer">Waiting
                                 for answer 2 ...</label>
                         </div>
                         <div class="radio questionAnswer pl-3 pr-3">
-                            3: <label><input id="answ3" type="radio" name="optradio" class="cursorPointer" onclick="console.log('1')">Waiting
+                            3: <label><input id="answ3" type="radio" name="optradio" class="cursorPointer">Waiting
                                 for answer 3 ...</label>
                         </div>
                         <div class="radio questionAnswer pl-3 pr-3">
-                            4: <label><input id="answ4" type="radio" name="optradio" class="cursorPointer" onclick="console.log('1')">Waiting
+                            4: <label><input id="answ4" type="radio" name="optradio" class="cursorPointer">Waiting
                                 for answer 4 ...</label>
                         </div>
                         </div>
                         <div id="showTimer" class="showTimer mt-2"></div>
 
+                    </div>
+                    <div class="col text-center" id="btnStopGameWrap">
+                        <button class="btn btn-secondary d-none" id="stopGameBtn">Stop Game</button>
                     </div>
                 </div>
 
@@ -199,7 +206,49 @@
     <!-- End of modals for login and sign up -->
 
     </div>
+    <!-- speech to text codes -->
 
+    <div id="info" style="display:none !important;">
+            <p id="info_speak_now">Speaking ...</p>
+            <p id="info_no_speech" style="display:none !important;">No speech was detected. You
+                may need to adjust your
+                <a style="display:none !important;" href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+                    microphone settings</a>.</p>
+            <p style="display:none !important;" id="info_no_microphone" style="display:none">
+                No microphone was found. Ensure that a microphone is installed and that
+                <a style="display:none !important;" href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+                    microphone settings</a> are configured correctly.</p>
+            <p style="display:none !important;" id="info_allow">Click the "Allow" button above
+                to enable your microphone.</p>
+            <p style="display:none !important;" id="info_denied">Permission to use microphone
+                was denied.</p>
+            <p style="display:none !important;" id="info_blocked">Permission to use microphone
+                is blocked. To change,
+                go to chrome://settings/contentExceptions#media-stream</p>
+            <p style="display:none !important;" id="info_upgrade">Web Speech API is not
+                supported by this browser.
+                Upgrade to <a href="//www.google.com/chrome">Chrome</a>
+            </p>
+        </div>
+        <div class="mt-5 text-center text-white">
+            <div id="results">
+                <span id="final_span" class="final"></span>
+                <span id="interim_span" class="interim"></span>
+                <span id="copy_button" class="d-none"></span>
+                <span id="email_button" class="d-none"></span>
+                <span id="copy_info" class="d-none"></span>
+                <span id="email_info" class="d-none"></span>
+            </div>
+            <button id="start_button" onclick="startButton(event);">
+            <img id="start_img" class="rounded-circle" src="mic.gif" alt="Start"></button>
+        </div>
+    
+        <div style="display:none !important;" id="div_language">
+            <select style="display:none !important;" id="select_language" style="display:none;"
+                onchange="updateCountry()"></select>
+            &nbsp;&nbsp;
+            <select style="display:none !important;" style="display:none;" id="select_dialect"></select>
+        </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
