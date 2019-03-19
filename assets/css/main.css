@@ -9,7 +9,7 @@ body {
 /* MAIN TITLE */
 
 .title-letter {
-    font-size: 6rem;
+    font-size: 6vw;
     color: white;
     font-family: 'Slackey', cursive;
     text-shadow: -1px -1px 0 #000, 5px -1px 0 #000, -1px 5px 0 #000, 5px 5px 0 #000;
@@ -35,25 +35,27 @@ body {
   }
 
 /* FANCY BUTTONS! */
-.myButton {
-	box-shadow: 0px 5px 5px -1px #8a2a21;
-	background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
-	background-color: #c62d1f;
+  .myButton {
+	background-color: #3d94f6;
 	border-radius: 20px;
-	border: 1px solid #d02718;
-	color: black;
-	font-family: 'Slackey', cursive;
-	font-size: 17px;
-	padding: 0px 10px;
+	border: 4px solid #337fed;
+	display: inline-block;
+  cursor: pointer;
+  font-family: 'Slackey', cursive;
+	color: #000000;
+	font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+	padding: 1px 10px;
 }
 .myButton:hover {
-	background: linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
-	background-color: #f24437;
+	background-color: #02a839;
 }
 .myButton:active {
 	position: relative;
 	top: 1px;
 }
+
 /* fb and google login btn styles */
 /* Shared */
 .loginBtn {
@@ -129,14 +131,6 @@ body {
     background: #E74B37;
   }
   /* user facebool profile picture */
-  .imgProfile
-  {
-      width: 50px;
-  }
-
-  #start_img {
-    width: 30px;
-  }
 
   .chatPic {
     width: 30px;
@@ -154,6 +148,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
   }
 
   /* Trivia! */
@@ -168,8 +163,8 @@ body {
     padding: 5px;
     border: solid 1px orange;
     font-weight: 500;
-    margin-left: 15%;
-    margin-right: 15%;
+    /* margin-left: 15%;
+    margin-right: 15%; */
   }
   .selectedAnswer {
     background-color: rgb(229, 230, 173);
@@ -217,6 +212,13 @@ body {
     );
     transition: clip-path 0.01s linear;
   }
+
+  #radiobtns {
+  margin: 0 auto;
+  width: auto;
+  text-align: left;
+  display: table;
+  }
   
   .radio:hover {
     /* Clip-path spanning the entire box so it's no longer hiding the full-width border. */
@@ -237,6 +239,37 @@ body {
 }
 
 #msgList::-webkit-scrollbar-thumb
+{
+	border-radius: 20px;
+	background-color: #FFF;
+	background-image: -webkit-gradient(linear,
+									   40% 0%,
+									   75% 84%,
+									   from(#4D9C41),
+									   to(#19911D),
+									   color-stop(.6,#54DE5D))
+}
+
+/* HORIZONTAL SCROLLING */
+.scrolling-wrapper-flexbox {
+  display: flex;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+
+#usersScoreBoard::-webkit-scrollbar-track
+{
+	background-color: rgba(0, 0, 0, 0);
+	border-radius: 15px;
+}
+
+#usersScoreBoard::-webkit-scrollbar
+{
+	height: 6px;
+	background-color: rgba(0, 0, 0, 0.322);
+}
+
+#usersScoreBoard::-webkit-scrollbar-thumb
 {
 	border-radius: 20px;
 	background-color: #FFF;

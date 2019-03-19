@@ -21,7 +21,7 @@ urlRef.on("value", function (snapshot) {
         var userPoints = userInfo.userPoints;
         $("#usersScoreBoard").append(`
     <div class="row ml-1 float-left align-items-center text-center">
-    <div class="col text-center border-right border-white"><img src='${profileImg}' class="rounded-circle playerScores mr-1"/>${displayName}<br>Score: ${userPoints}</div>
+    <div class="col text-center border-right border-white scores"><img src='${profileImg}' class="rounded-circle playerScores mr-2 ml-2"/>${displayName}<br>Score: ${userPoints}</div>
     </div>`
         );
     });

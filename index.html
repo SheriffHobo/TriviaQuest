@@ -36,23 +36,24 @@
                 <p class="title-letter">!</p>
             </div>
 
-            <div class="container-fluid col-5">
+            <div class="container-fluid col-4">
                 <!-- PLAYER INFO -->
                 <div class="row text-white mb-3 p-0 b-o align-items-center text-center justify-content-center">
-                    <div class="col-1 m-1 p-0 b-o">
+                    <div class="col-1 m-0 p-0 b-o">
                             <button type="button" id="emailSignOut" class="btn btn-primary d-none btn-sm"><i class="fas fa-sign-out-alt fa-flip-horizontal"></i></button>
                             <button type="button" id="facebookSignOut" class="btn btn-primary d-none btn-sm"><i class="fas fa-sign-out-alt fa-flip-horizontal"></i></button>
                     </div>
-                    <div class="col-4 m-1 p-0 b-o" id="playerPic"></div>
-                    <div class="col-2 m-1 p-0 b-0" id="userScore"></div>
+                    <div class="col m-1 p-0 b-o" id="playerPic"></div>
+                    <div class="col-2 m-1 p-0 b-0" style="font-size: 1.1em" id="userScore"></div>
                 </div>
             </div>
+
             <!-- ALL PLAYER SCORES -->
             <div class="container-fluid col-8 border-top border-bottom border-white p-3">
                 <div class="row text-white">
                     <div id="allplayers" class="text-center">
                         <div class="pstitle float-left">Player Scores: </div>
-                        <div id="usersScoreBoard" class="float-left"></div>
+                        <div id="usersScoreBoard" class="float-left scrolling-wrapper-flexbox"></div>
                     </div>
                 </div>
             </div>
@@ -67,24 +68,26 @@
                     </div>
                     <div id="thetrivia" class="divwrapRadio text-center d-none">
                         <h6 id="topic">Waiting for topic ...</h6>
-                        <div id="questionId" class="questionAnswer">
+                        <div id="questionId" class="questionAnswer mb-3">
                             Waiting for question ...
                         </div>
-                        <div class="radio questionAnswer mt-2">
+                        <div id="radiobtns">
+                        <div class="radio questionAnswer pl-3 pr-3">
                             1: <label><input id="answ1" type="radio" name="optradio" class="cursorPointer" onclick="console.log('1')">Waiting
                                 for answer 1 ...</label>
                         </div>
-                        <div class="radio questionAnswer">
+                        <div class="radio questionAnswer pl-3 pr-3">
                             2: <label><input id="answ2" type="radio" name="optradio" class="cursorPointer" onclick="console.log('1')">Waiting
                                 for answer 2 ...</label>
                         </div>
-                        <div class="radio questionAnswer">
+                        <div class="radio questionAnswer pl-3 pr-3">
                             3: <label><input id="answ3" type="radio" name="optradio" class="cursorPointer" onclick="console.log('1')">Waiting
                                 for answer 3 ...</label>
                         </div>
-                        <div class="radio questionAnswer">
+                        <div class="radio questionAnswer pl-3 pr-3">
                             4: <label><input id="answ4" type="radio" name="optradio" class="cursorPointer" onclick="console.log('1')">Waiting
                                 for answer 4 ...</label>
+                        </div>
                         </div>
                         <div id="showTimer" class="showTimer mt-2"></div>
 
@@ -96,7 +99,7 @@
 
                 <!-- CHAT -->
                 <div class="col-5">
-                    <div id="msgList" class="scrollbar force-overflow mt-2" style="word-wrap: break-word"></div>
+                    <div id="msgList" class="scrollbar mt-2" style="word-wrap: break-word"></div>
                     <form action="" class="mt-2">
                         <label for="">
                             Message: <input type="text" id="msginput" placeholder=" Your insult:" value="" size="35">
