@@ -132,6 +132,12 @@
     // Add realtime listener
     firebase.auth().onAuthStateChanged(firebaseUser => {
         if(firebaseUser){
+            // introducing speech
+            sayText(`Welcome to TriviaQuest! You have 30 Seconds for each question to answer. and there is 3 seconds between each question.
+        You can disable voice with pressing Alt, or enable it with pressing Shift on your keyboard. 
+        To answer the question you can use arrow keys, up for 1, right for 2, bottm for 3 and left for four. 
+        Also you can talk to computer by pressing Escape key, and send command by pressing Escape key you said your answer. GOOD LUCK!`);
+
             // close the modals
             $("#signupCloseBtn").click();
             $("#loginCloseBtn").click();
