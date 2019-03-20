@@ -5,7 +5,7 @@ $(function () {
     $('#btnSubmit').on('click', function (event) {
         event.preventDefault();
         u = $('.imgProfile').attr('src');
-        var name = $('#playerPic').val().split(' ')[0];
+        var name = $('#playerPic').data('name').split(' ')[0];
         var m = $('#msginput').val();
         var t = Date();
         database.ref('/chat/').push({ name, text: m, time: t, img: u });
